@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+option java_package = "com.github.csandiego.pocgrpc.kotlin.protobuf";
+option java_multiple_files = true;
+
 package protobuf;
 
 message Book {
