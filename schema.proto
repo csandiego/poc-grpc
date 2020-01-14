@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package protobuf;
+
+message Book {
+  int64 id = 1;
+  string title = 2;
+  string author = 3;
+}
+
+message BookListRequest {}
+
+message BookListResponse {
+  repeated Book books = 1;
+}
+
+message BookCreateRequest {
+  Book book = 1;
+}
+
+message BookCreateResponse {}
+
+message BookGetRequest {
+  int64 id = 1;
+}
+
+message BookGetResponse {
+  Book book = 1;
+}
+
+message BookUpdateRequest {
+  int64 id = 1;
+  Book book = 2;
+}
+
+message BookUpdateResponse {}
+
+message BookDeleteRequest {
+  int64 id = 1;
+}
+
+message BookDeleteResponse {}
+
+service BookService {
+  rpc List (BookListRequest) returns (BookListResponse);
+  rpc Create(BookCreateRequest) returns (BookCreateResponse);
+  rpc Get (BookGetRequest) returns (BookGetResponse);
+  rpc Update (BookUpdateRequest) returns (BookUpdateResponse);
+  rpc Delete (BookDeleteRequest) returns (BookDeleteResponse);
+}
